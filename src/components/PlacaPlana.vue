@@ -108,15 +108,17 @@ import Plotly from 'plotly.js-dist-min';
   
 // Definiçcao das condicoes de contorno para placa plana
 const boundaryConditions = {
-    temp: (x, T) => ({ a: x, b: 1, c: T }),
-    flux: (x, q, k) => ({ a: 1, b: 0, c: -q / k }), // -k * C1 = q  => C1 = -q/k
-    conv: (x, h, Tinf, k) => ({
-      a: h * x + k, // derivado considerando -k C1 = h*(C1*x + C2 - Tinf)
-      b: h,
-      c: h * Tinf
-    })
+  temp: (x, T) => ({ a: x, b: 1, c: T }),
+  flux: (x, q, k) => ({ a: 1, b: 0, c: -q / k }),
+  conv: (x, h, Tinf, k) => {
+    if (x === 0) {
+      return { a: k, b: -h, c: -h * Tinf };
+    } else {
+      return { a: h * x + k, b: h, c: h * Tinf };
+    }
+  }
 };
-  
+
 export default {
     name: 'PlateConduction',
     setup() {
