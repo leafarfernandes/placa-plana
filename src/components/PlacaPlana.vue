@@ -14,7 +14,7 @@
             <input type="number" v-model.number="x2" step="0.01">
           </label>
           <label>
-            Área (L) [m²]:
+            Área [m²]:
             <input type="number" v-model.number="L" step="0.01">
           </label>
           <label>
