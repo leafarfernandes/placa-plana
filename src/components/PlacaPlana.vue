@@ -122,10 +122,10 @@ const boundaryConditions = {
 export default {
     name: 'PlateConduction',
     setup() {
-      // Parametros gerais: x variando de x1 a x2 (de um lado a outro da placa)
+      // os parametros gerais: x variando de x1 a x2 (q é de um lado a outro da placa)
       const x1 = ref(null);
       const x2 = ref(null);
-      const L = ref(null); // Área 'inputada' pelo usuario
+      const L = ref(null); // area 'inputada' pelo usuario
       const k = ref(null);
       
       // Condição na face em x1 (seria tipo inicial)
@@ -142,7 +142,7 @@ export default {
       const outerH = ref(null);
       const outerTInf = ref(null);
       
-      // Ponto de analise da temperatura (solicitada pela questao)
+      // Ponto de analise da temperatura (solicitada pela questao do çengel)
       const xInput = ref(null);
       
       // Resultados
